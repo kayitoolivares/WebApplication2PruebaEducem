@@ -1,0 +1,36 @@
+﻿@using WebApplication2PruebaEducem.Controllers;
+
+
+
+
+
+@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+
+<table class="table">
+       
+    <thead>
+        <tr>
+            <td>usuario</td>
+            <td>pass</td>
+        </tr>
+        
+    </thead>
+    <tbody>
+        @{ 
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.usuario</td>
+                    <td>@item.pass</td> 
+                </tr>
+
+            }
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<WebApplication2PruebaEducem.Models.nota>
+@{
+
+    ViewBag.Title = "Index";
+
+}
+
+<h2>Noticias</h2>
+@if (Convert.ToString(User.Identity.Name.Split('|')[1]).Equals("i"))
+{
+<form action="/Perfil/Create" method="post">
+    <div class="form-floating">
+        <textarea class="form-control" maxlength="250" placeholder="Leave a comment here"  name="contenido"></textarea>
+        <label for="floatingTextarea">Comments</label>
+    </div>
+   
+    <button class="btn btn-success">Crear</button>
+</form>
+
+
+}
+
+<br />
+<br />
+<br />
+
+<div class="container center-block">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+                @*<div class="card">
+                    <div class="card-header">
+                        @item.fecha
+                    </div>
+                    <div class="card-body">
+                        @item.usuario.personal.nombre
+
+                        @item.usuario.personal.apematerno
+                        @item.usuario.tipo
+                        <h5 class="card-title">Nota</h5>
+                        <p class="card-text">@item.contenido</p>
+                        <a href="/Perfil/Comentar" class="btn btn-primary">Comentar</a>
+                    </div>
+                </div>*@
+
+
+            <div class="col col-sm-4">
+                <h2>Nota</h2>
+                <small>
+                    @item.usuario.personal.nombre @item.usuario.personal.apematerno @item.usuario.tipo
+                    <br />
+                    @item.fecha
+                </small>
+                <p><h4>    @item.contenido</h4>
+                </p>
+                <p>
+                    
+                    <a href="/Perfil/Comentar/@item.id" class="btn btn-default">Comentar</a>
+                    
+                </p>
+            </div>
+
+
+        }
+    </div>
+
+
+    </div>
+

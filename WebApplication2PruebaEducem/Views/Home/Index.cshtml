@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@{ 
+    if (!string.IsNullOrEmpty(ViewBag.msg))
+    {
+        <div class="alert alert-danger">@ViewBag.msg</div>
+    }
+}
+
+<div>
+    <form action="/Home/Login" method="post">
+        <div class="form-group">
+            <label>Usuario</label>
+            <input type="text" name="usuario" value="" />
+        </div>
+        <div class="form-group">
+            <label>Contraseña</label>
+            <input type="password" name="pass" value="" />
+        </div>
+        <div class="form-group"><button>Entrart</button></div>
+            
+    </form>
+</div>
